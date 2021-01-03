@@ -1,0 +1,137 @@
+# Prod profile
+spring:
+  profiles: "prod"
+  boot:
+    admin:
+      client:
+        url: 'http://localhost:8081'
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: ${FORUM_DATABASE_URL}
+    username: ${FORUM_DATABASE_USERNAME}
+    password: ${FORUM_DATABASE_PASSWORD}
+    initialization-mode: never
+  jpa:
+    database-platform: 'org.hibernate.dialect.H2Dialect'
+    hibernate.ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: '/h2-console'
+
+# jwt
+forum:
+  jwt:
+    secret: 'KQzhbX@aK0r1D@LDkIeV35eNP4mXmS5@3UpC&xFImiuHt$iB4#'
+    expiration: 86400000
+
+# actuator
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+info:
+  app:
+    name: '@project.name@'
+    description: '@project.description@'
+    version: '@project.version@'
+    encoding: '@project.build.sourceEncoding@'
+    java:
+      version: '@java.version@'
+
+---
+
+# Dev profile
+spring:
+  profiles: "dev"
+  boot:
+    admin:
+      client:
+        url: 'http://localhost:8081'
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: 'jdbc:h2:mem:alura-forum'
+    username: 'sa'
+    password: ''
+  jpa:
+    database-platform: 'org.hibernate.dialect.H2Dialect'
+    hibernate.ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: '/h2-console'
+
+# jwt
+forum:
+  jwt:
+    secret: 'KQzhbX@aK0r1D@LDkIeV35eNP4mXmS5@3UpC&xFImiuHt$iB4#'
+    expiration: 86400000
+
+# actuator
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+info:
+  app:
+    name: '@project.name@'
+    description: '@project.description@'
+    version: '@project.version@'
+    encoding: '@project.build.sourceEncoding@'
+    java:
+      version: '@java.version@'
+
+---
+
+# Test profile
+spring:
+  profiles: "test"
+  boot:
+    admin:
+      client:
+        url: 'http://localhost:8081'
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: 'jdbc:h2:mem:alura-forum'
+    username: 'sa'
+    password: ''
+    initialization-mode: never
+  jpa:
+    database-platform: 'org.hibernate.dialect.H2Dialect'
+    hibernate.ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: '/h2-console'
+
+# jwt
+forum:
+  jwt:
+    secret: 'KQzhbX@aK0r1D@LDkIeV35eNP4mXmS5@3UpC&xFImiuHt$iB4#'
+    expiration: 86400000
+
+# actuator
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+info:
+  app:
+    name: '@project.name@'
+    description: '@project.description@'
+    version: '@project.version@'
+    encoding: '@project.build.sourceEncoding@'
+    java:
+      version: '@java.version@'
